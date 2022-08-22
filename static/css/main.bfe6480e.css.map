@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.bfe6480e.css","mappings":"AAAA,OACE,WAAY,CAEZ,YAAa,CADb,WAEF","sources":["index.css"],"sourcesContent":["iframe {\n  border: none;\n  width: 100vw;\n  height: 100vh;\n}\n"],"names":[],"sourceRoot":""}
