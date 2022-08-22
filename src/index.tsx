@@ -15,8 +15,8 @@ import {
 } from "spectacle";
 import { createRoot } from "react-dom/client";
 import GlitchEmbed from "./GlitchEmbed";
-
-const septimaLogo = "/Septima_logo_white.png";
+import septimaLogo from "./img/Septima_logo_white.png";
+import bgImg from "./img/DSC08397.jpeg";
 // SPECTACLE_CLI_THEME_START
 const theme = {
   fonts: {
@@ -138,7 +138,7 @@ const animateLine = () => {
     </Slide>
     <Slide
       backgroundColor="tertiary"
-      backgroundImage="url(/DSC08397.jpeg)"
+      backgroundImage={`url(${bgImg})`}
       backgroundOpacity={0.7}
     >
       <Heading color="#dec549">Thank you!</Heading>
