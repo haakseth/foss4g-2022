@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.371de1b5.css",
-    "main.js": "/static/js/main.b44c1f03.js",
-    "index.html": "/index.html",
-    "main.371de1b5.css.map": "/static/css/main.371de1b5.css.map",
-    "main.b44c1f03.js.map": "/static/js/main.b44c1f03.js.map"
+    "main.css": "/foss4g-2022/static/css/main.371de1b5.css",
+    "main.js": "/foss4g-2022/static/js/main.d53c2a87.js",
+    "index.html": "/foss4g-2022/index.html",
+    "main.371de1b5.css.map": "/foss4g-2022/static/css/main.371de1b5.css.map",
+    "main.d53c2a87.js.map": "/foss4g-2022/static/js/main.d53c2a87.js.map"
   },
   "entrypoints": [
     "static/css/main.371de1b5.css",
-    "static/js/main.b44c1f03.js"
+    "static/js/main.d53c2a87.js"
   ]
 }
