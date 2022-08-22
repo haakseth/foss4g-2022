@@ -19,9 +19,6 @@ import {
 import { createRoot } from "react-dom/client";
 import GlitchEmbed from "./GlitchEmbed";
 
-const formidableLogo =
-  "https://avatars2.githubusercontent.com/u/5078602?s=280&v=4";
-
 const septimaLogo = "/Septima_logo_white.png";
 // SPECTACLE_CLI_THEME_START
 const theme = {
