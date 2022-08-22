@@ -2,9 +2,6 @@ import "./index.css";
 import {
   FlexBox,
   Heading,
-  UnorderedList,
-  CodeSpan,
-  ListItem,
   FullScreen,
   AnimatedProgress,
   Slide,
@@ -81,8 +78,31 @@ const Presentation = () => (
     </Slide>
     <Slide>
       <FlexBox height="100%" flexDirection="column">
-        <GlitchEmbed id="animated-route-1" />
+        <GlitchEmbed id="animated-route-1-foss4g" />
       </FlexBox>
+    </Slide>
+    <Slide>
+      <Text>Idea: Add route point by point using requestAnimationFrame()</Text>
+
+      <CodePane language="javascript">{`
+let progress = 0;
+let animationFeature = new Feature()
+const animateLine = () => {
+  if (progress < feature.geometry.coordinates.length) {
+    // we have not added all the points yet, call requestAnimationFrame()
+    animationFeature.features[0].geometry.coordinates.push(
+      feature.geometry.coordinates[progress]
+    );
+    map.getSource("line-animation").setData(animationFeature);
+    progress = progress + 1;
+    animation = requestAnimationFrame(animateLine);
+  } else {
+    // we have added all the points, do not call requestAnimationFrame()
+    map.getSource("line-animation").setData(shortRouteFeature);
+    progress = 0;
+  }
+};
+        `}</CodePane>
     </Slide>
     <Slide>
       <FlexBox height="100%" flexDirection="column">
@@ -90,68 +110,41 @@ const Presentation = () => (
       </FlexBox>
     </Slide>
     <Slide>
-      <FlexBox height="100%" flexDirection="column">
-        <GlitchEmbed id="animated-route-3-long" />
-      </FlexBox>
+      <Text>Problem: Unable to control duration</Text>
     </Slide>
     <Slide>
       <FlexBox height="100%" flexDirection="column">
-        <GlitchEmbed id="animated-route-4" />
+        <GlitchEmbed id="animated-route-3-foss4g" />
       </FlexBox>
     </Slide>
     <Slide>
+      <Text>
+        Idea: use turf.js to calculate length of line, and add points to control
+        duration
+      </Text>
+    </Slide>
+    <Slide>
       <FlexBox height="100%" flexDirection="column">
-        <GlitchEmbed id="animated-route-5" />
+        <GlitchEmbed id="animated-route-4-foss4g" />
+      </FlexBox>
+    </Slide>
+    <Slide>
+      <Text>Final touch: add easing</Text>
+    </Slide>
+    <Slide>
+      <FlexBox height="100%" flexDirection="column">
+        <GlitchEmbed id="animated-route-5-foss4g" />
       </FlexBox>
     </Slide>
     <Slide
       backgroundColor="tertiary"
-      backgroundImage="url(https://github.com/FormidableLabs/dogs/blob/main/src/beau.jpg?raw=true)"
-      backgroundOpacity={0.6}
+      backgroundImage="url(/DSC08397.jpeg)"
+      backgroundOpacity={0.7}
     >
-      <Heading>Custom Backgrounds</Heading>
-      <UnorderedList>
-        <ListItem>
-          <CodeSpan>backgroundColor</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundImage</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundOpacity</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundSize</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundPosition</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundRepeat</CodeSpan>
-        </ListItem>
-      </UnorderedList>
-    </Slide>
-
-    <Slide>
-      <CodePane language="jsx">{`
-        import { createClient, Provider } from 'urql';
-
-        const client = createClient({ url: 'https://0ufyz.sse.codesandbox.io' });
-
-        const App = () => (
-          <Provider value={client}>
-            <Todos />
-          </Provider>
-        );
-        `}</CodePane>
-      <Box height={20} />
-      <CodePane language="java" showLineNumbers={false}>{`
-        public class NoLineNumbers {
-          public static void main(String[] args) {
-            System.out.println("Hello");
-          }
-        }
-        `}</CodePane>
+      <Heading color="#dec549">Thank you!</Heading>
+      <FlexBox height="100%">
+        <Text fontSize={24}>@haakseth</Text>
+      </FlexBox>
     </Slide>
   </Deck>
 );
