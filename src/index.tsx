@@ -12,6 +12,7 @@ import {
   CodePane,
   Notes,
   Link,
+  Progress,
 } from "spectacle";
 import { createRoot } from "react-dom/client";
 import GlitchEmbed from "./GlitchEmbed";
@@ -54,7 +55,7 @@ const template = () => (
       </div>
     </Box>
     <Box padding="0 1em">
-      <AnimatedProgress />
+      <Progress />
     </Box>
   </FlexBox>
 );
@@ -78,7 +79,19 @@ const Presentation = () => (
     </Slide>
     <Slide>
       <FlexBox height="100%" flexDirection="column">
-        <GlitchEmbed id="animated-route-1-foss4g" />
+        <iframe
+          src="https://codesandbox.io/embed/empty-meadow-6rqros?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+          style={{
+            width: "100%",
+            // height: 500,
+            border: 0,
+            borderRadius: 4,
+            overflow: "hidden",
+          }}
+          title="empty-meadow-6rqros"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
       </FlexBox>
     </Slide>
     <Slide>
@@ -87,18 +100,18 @@ const Presentation = () => (
       <CodePane language="javascript">{`
 let progress = 0;
 let animationFeature = new Feature()
-const animateLine = () => {
-  if (progress < feature.geometry.coordinates.length) {
+const animateLine = (routeFeature) => {
+  if (progress < routeFeature.geometry.coordinates.length) {
     // we have not added all the points yet, call requestAnimationFrame()
     animationFeature.features[0].geometry.coordinates.push(
-      feature.geometry.coordinates[progress]
+      routeFeature.geometry.coordinates[progress]
     );
     map.getSource("line-animation").setData(animationFeature);
     progress = progress + 1;
     animation = requestAnimationFrame(animateLine);
   } else {
     // we have added all the points, do not call requestAnimationFrame()
-    map.getSource("line-animation").setData(shortRouteFeature);
+    map.getSource("line-animation").setData(routeFeature);
     progress = 0;
   }
 };
